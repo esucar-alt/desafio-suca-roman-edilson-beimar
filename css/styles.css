@@ -1,0 +1,366 @@
+/* ==========================================================================
+   RESET Y CONFIGURACIÓN BÁSICA (FLUJO NORMAL Y FLUIDO)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Paleta extraída de la marca institucional UMSA */
+    --color-rojo-umsa: #b31b1b;
+    --color-rojo-hover: #8e1212;
+    --color-azul-umsa: #0b2f64;
+    --color-gris-fondo: #f4f6f9;
+    --color-gris-borde: #dcdfe6;
+    --color-texto: #222222;
+    --color-blanco: #ffffff;
+    --color-disponible: #1e7e34;
+    --color-agotado: #bd2130;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-gris-fondo);
+    color: var(--color-texto);
+    /* Se reduce la tipografía base de la página */
+    font-size: clamp(0.85rem, 0.8vw + 0.4rem, 0.95rem);
+}
+
+/* ==========================================================================
+   CABECERA Y PORTADA
+   ========================================================================== */
+header {
+    background-color: var(--color-blanco);
+    border-bottom: 4px solid var(--color-rojo-umsa);
+    width: 100%;
+}
+
+.portada-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: var(--color-blanco);
+    text-align: center;
+}
+
+.img-portada {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: clamp(180px, 28vw, 380px);
+    object-fit: cover;
+}
+
+.portada-container figcaption {
+    display: block;
+    padding: clamp(0.6rem, 1.5vw, 1rem);
+    background-color: var(--color-azul-umsa);
+    color: var(--color-blanco);
+}
+
+.portada-container h1 {
+    font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+    letter-spacing: 0.5px;
+}
+
+.portada-container p {
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    opacity: 0.9;
+}
+
+/* Navegación mediante Inline-Block sin Flexbox */
+nav {
+    display: block;
+    background-color: var(--color-rojo-umsa);
+    text-align: center;
+    padding: 0.4rem 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 clamp(0.2rem, 0.8vw, 0.8rem);
+}
+
+nav a {
+    display: inline-block;
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.4rem 0.6rem;
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--color-rojo-hover);
+}
+
+/* ==========================================================================
+   CONTENIDO PRINCIPAL
+   ========================================================================== */
+main {
+    display: block;
+    width: clamp(280px, 92%, 1100px);
+    margin: 1.2rem auto;
+}
+
+h2 {
+    color: var(--color-rojo-umsa);
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    border-bottom: 2px solid var(--color-rojo-umsa);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   SECCIÓN ARTÍCULO DESTACADO (FLUJO NORMAL / INLINE-BLOCK)
+   ========================================================================== */
+.seccion-destacada {
+    display: block;
+    background-color: var(--color-blanco);
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.articulo-principal {
+    display: block;
+    width: 100%;
+    font-size: 0;
+    /* Previene espacio entre inline-blocks */
+}
+
+.articulo-principal figure {
+    display: inline-block;
+    vertical-align: middle;
+    width: clamp(220px, 40%, 420px);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.articulo-principal figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.info-destacada {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - clamp(220px, 40%, 420px));
+    padding-left: clamp(0.8rem, 1.5vw, 1.5rem);
+    font-size: 0.9rem;
+    min-width: min(100%, 260px);
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--color-rojo-umsa);
+    color: var(--color-blanco);
+    padding: 0.15rem 0.5rem;
+    font-weight: bold;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 0.4rem;
+}
+
+.categoria {
+    color: var(--color-rojo-umsa);
+    font-weight: bold;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.articulo-principal h3 {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    color: var(--color-azul-umsa);
+    margin: 0.2rem 0;
+}
+
+.descripcion {
+    margin-bottom: 0.8rem;
+    color: #555;
+    font-size: 0.88rem;
+}
+
+.detalles-tecnicos dt {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-right: 0.3rem;
+}
+
+.detalles-tecnicos dd {
+    display: inline-block;
+    font-size: 0.85rem;
+    margin-right: 0.8rem;
+}
+
+.precio {
+    color: var(--color-rojo-umsa);
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    font-weight: bold;
+}
+
+/* Estilos de details y summary */
+details {
+    display: block;
+    margin-top: 0.8rem;
+    background-color: var(--color-gris-fondo);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: 5px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+}
+
+summary {
+    font-weight: bold;
+    color: var(--color-azul-umsa);
+    cursor: pointer;
+    outline: none;
+}
+
+summary:hover {
+    color: var(--color-rojo-umsa);
+}
+
+.especificaciones dt {
+    font-weight: bold;
+    margin-top: 0.3rem;
+}
+
+.especificaciones dd {
+    margin-left: 0.8rem;
+    color: #444;
+}
+
+/* ==========================================================================
+   SECCIÓN CATÁLOGO (LAYOUT FLUIDO MULTI-COLUMNA CON INLINE-BLOCK)
+   ========================================================================== */
+.seccion-catalogo {
+    display: block;
+    text-align: left;
+    font-size: 0;
+    /* Previene espacios entre tarjetas inline-block */
+}
+
+.tarjeta-producto {
+    display: inline-block;
+    vertical-align: top;
+    width: clamp(240px, 31%, 330px);
+    margin: 0 1% 1.2rem 1%;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+.tarjeta-producto figure {
+    display: block;
+    text-align: center;
+    background-color: #fafafa;
+    border-radius: 6px;
+    padding: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: clamp(140px, 16vw, 190px);
+    object-fit: contain;
+}
+
+.badge-estado {
+    display: inline-block;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border-radius: 3px;
+    color: var(--color-blanco);
+    margin-bottom: 0.3rem;
+}
+
+.badge-estado.disponible {
+    background-color: var(--color-disponible);
+}
+
+.badge-estado.agotado {
+    background-color: var(--color-agotado);
+}
+
+.tarjeta-producto h3 {
+    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+    color: var(--color-azul-umsa);
+    margin: 0.2rem 0;
+}
+
+.subtitulo-prod {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.tarjeta-producto dl dt {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.tarjeta-producto dl dd {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+}
+
+.tarjeta-producto dl dd.precio {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   SECCIÓN INFORMATIVA / PREGUNTAS FRECUENTES
+   ========================================================================== */
+.seccion-informacion {
+    display: block;
+    background-color: var(--color-blanco);
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: 8px;
+    margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+}
+
+.seccion-informacion details {
+    margin-bottom: 0.6rem;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA
+   ========================================================================== */
+footer {
+    display: block;
+    background-color: var(--color-azul-umsa);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 1.2rem 1rem;
+    font-size: 0.82rem;
+    border-top: 4px solid var(--color-rojo-umsa);
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
